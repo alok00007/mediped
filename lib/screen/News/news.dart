@@ -23,6 +23,8 @@ class News extends StatelessWidget {
 
             ],
           )),
+          SizedBox(height: 400,),
+          Text(".......Coming soon....")
 
         ],
       ),

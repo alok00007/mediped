@@ -19,7 +19,7 @@ class TeamPic extends StatelessWidget {
                      Navigator.of(context).pop();
                    },child:  Image.asset("assets/images/back.png",scale: 5,),
                  ),
-                  SizedBox(width: 100,),
+                  SizedBox(width: MediaQuery.of(context).size.width*0.3,),
                   Text("TEAM",style: TextStyle(fontWeight: FontWeight.bold,fontSize: 40),),
 
                 ],
@@ -48,8 +48,8 @@ class TeamCard extends StatelessWidget {
     return  Card(child:Row(
       children: [ ClipRRect(
           borderRadius: BorderRadius.circular(20.0),
-          child: Image.asset("assets/images/team/man1.jpg",height: 150,width: 150,fit: BoxFit.cover,)),
-        SizedBox(width: 100,),
+          child: Image.asset("assets/images/team/man1.jpg",height: MediaQuery.of(context).size.width*0.3,width: MediaQuery.of(context).size.width*0.4,fit: BoxFit.cover,)),
+        SizedBox(width: MediaQuery.of(context).size.width*0.17,),
         Text("$name",style: TextStyle(fontWeight: FontWeight.w400,fontSize: 30))
 
       ],

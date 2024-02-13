@@ -4,6 +4,7 @@ import 'package:flutter/material.dart';
 import 'package:mediped/home/bottomNavigationBar.dart';
 import 'package:mediped/screen/News/news.dart';
 import 'package:mediped/screen/predict/predict.dart';
+import 'package:mediped/screen/ps/info.dart';
 import 'package:mediped/screen/ps/ps.dart';
 import 'package:mediped/screen/team/team.dart';
 import 'package:mediped/theme/color.dart';
@@ -26,11 +27,11 @@ class _DashboardState extends State<Dashboard> {
           SingleChildScrollView(
             child: Column(
               children: [
-                SizedBox(height: 60),
+                SizedBox(height: MediaQuery.of(context).size.width*0.25),
                 Stack(
                   children: [Container(
                     width: double.infinity,
-                    height: 150,
+                    height: MediaQuery.of(context).size.width*0.56,
                     child: Text(
                       "MEDIPED",
                       style: TextStyle(fontSize: 70, fontWeight: FontWeight.bold),
@@ -39,7 +40,13 @@ class _DashboardState extends State<Dashboard> {
                     Positioned(
                         top: 15,
                         right: 10,
-                        child: IconButton(onPressed: (){}, icon: Icon(Icons.info),iconSize: 30,))
+                        child: IconButton(onPressed: (){
+
+                          Navigator.push(
+                            context,
+                            MaterialPageRoute(builder: (context) => info() ),
+                          );
+                        }, icon: Icon(Icons.info),iconSize: 30,))
                   ],
                 ),
                 SizedBox(height: 70),
@@ -58,7 +65,7 @@ class _DashboardState extends State<Dashboard> {
                         children: [
 
                           ContainerButton(ImageName:"team",labelText: "TEAM",option: ()=>TeamPic()),
-                          SizedBox(width: 5),
+                          SizedBox(width: MediaQuery.of(context).size.width*0.008),
                           ContainerButton(ImageName:"ps",labelText: "PS",option: ()=>PS(),),
                         ],
                       ),
@@ -66,14 +73,14 @@ class _DashboardState extends State<Dashboard> {
                       Row(
                         children: [
                           ContainerButton(ImageName:"predict",labelText: "PREDICT", option: ()=>FlowerClassification()),
-                          SizedBox(width: 5),
+                          SizedBox(width: MediaQuery.of(context).size.width*0.007),
                           ContainerButton(ImageName:"news",labelText: "NEWS",option: ()=>News(),),
                         ],
                       ),
                     ],
                   ),
                 ),
-                Container(height: 100,width: double.infinity),
+                Container(height: MediaQuery.of(context).size.height*0.3,width: double.infinity),
 
               ],
             ),
@@ -117,7 +124,7 @@ class ContainerButton extends StatelessWidget {
               MaterialPageRoute(builder: (context) => option!() ),
             );},
               child: Container(
-                height: 190, // Adjust height based on your image size
+                height: MediaQuery.of(context).size.width*0.45,
                 decoration: BoxDecoration(
                   borderRadius: BorderRadius.circular(10),
                   image: DecorationImage(
@@ -128,15 +135,15 @@ class ContainerButton extends StatelessWidget {
                 ),
               ),
             ),
-            SizedBox(height: 8), // Adjust spacing between image and text
+            SizedBox(height: 10),
             Positioned(
               bottom: 0,
               left: 65,
               child: Text(
                 labelText ?? "",
                 style: TextStyle(
-                  fontSize: 26, // Adjust font size as needed
-                  fontWeight: FontWeight.bold, // Adjust font weight as needed
+                  fontSize: 26,
+                  fontWeight: FontWeight.bold,
                 ),
               ),
             ),
