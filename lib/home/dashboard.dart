@@ -65,7 +65,7 @@ class _DashboardState extends State<Dashboard> {
                       SizedBox(height: 20),
                       Row(
                         children: [
-                          ContainerButton(ImageName:"predict",labelText: "PREDICT", option: ()=>Predict()),
+                          ContainerButton(ImageName:"predict",labelText: "PREDICT", option: ()=>FlowerClassification()),
                           SizedBox(width: 5),
                           ContainerButton(ImageName:"news",labelText: "NEWS",option: ()=>News(),),
                         ],
