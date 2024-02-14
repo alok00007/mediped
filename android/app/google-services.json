@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "446918119583",
+    "project_id": "mediped-e561f",
+    "storage_bucket": "mediped-e561f.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:446918119583:android:64bf9cd3dc842f300e92aa",
+        "android_client_info": {
+          "package_name": "com.example.mediped"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBOiKxKNIKErcS43ZWTwphlLK2D4rhQHqc"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

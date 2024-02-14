@@ -17,7 +17,7 @@ class _FlowerClassificationState extends State<FlowerClassification> {
   String prediction = '';
 
   Future<void> predictFlower() async {
-    var url = Uri.parse('http://10.0.2.2:5000/predict');
+    var url = Uri.parse('http://127.0.0.1:5000/predict');
     var response = await http.post(url, body: {
       'Sepal_Length': sepalLengthController.text,
       'Sepal_Width': sepalWidthController.text,
