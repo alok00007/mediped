@@ -2,6 +2,7 @@
 
 import 'package:flutter/material.dart';
 import 'package:mediped/home/bottomNavigationBar.dart';
+import 'package:mediped/screen/3d%20rotatiing%20cube/rotating_cube.dart';
 import 'package:mediped/screen/News/news.dart';
 import 'package:mediped/screen/predict/predict.dart';
 import 'package:mediped/screen/ps/info.dart';
@@ -22,85 +23,101 @@ class _DashboardState extends State<Dashboard> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      body: Stack(
-        children: [
-          SingleChildScrollView(
-            child: Column(
+      body: Container(decoration: BoxDecoration(gradient:gradientColor),
+        child: Stack(
+          children: [
+            Column(
               children: [
-                SizedBox(height: MediaQuery.of(context).size.width*0.25),
+                SizedBox(height: MediaQuery.of(context).size.width*0.1),
                 Stack(
                   children: [Container(
                     width: double.infinity,
                     height: MediaQuery.of(context).size.width*0.56,
-                    child: Text(
-                      "MEDIPED",
-                      style: TextStyle(fontSize: 70, fontWeight: FontWeight.bold),
+                    child: Row(
+                      children: [
+                        Text(
+                          "MED",
+                          style: TextStyle(fontSize: 70, fontWeight: FontWeight.bold,color: textColor),
+                        ),
+                        Text(
+                          "i",
+                          style: TextStyle(fontSize: 70, fontWeight: FontWeight.bold,color: Colors.red),
+                        ),
+                        Text(
+                          "PED",
+                          style: TextStyle(fontSize: 70, fontWeight: FontWeight.bold,color: textColor),
+                        ),
+                      ],
                     ),
                   ),
                     Positioned(
-                        top: 15,
-                        right: 10,
+                        top: 55,
+                        right: 20,
                         child: IconButton(onPressed: (){
 
                           Navigator.push(
                             context,
-                            MaterialPageRoute(builder: (context) => info() ),
+                            MaterialPageRoute(builder: (context) => info() ), //RotatingCubeApp()
                           );
-                        }, icon: Icon(Icons.info),iconSize: 30,))
+                        }, icon: Icon(Icons.info),iconSize: 30,color: Colors.white,))
                   ],
                 ),
-                SizedBox(height: 70),
+                SizedBox(height: 100),
 
-                Container(
-                  width: double.infinity,
-                  height: 450,
-                  decoration: BoxDecoration(
-                    color: Colors.grey.shade400,
-                    borderRadius: BorderRadius.circular(20),
-                  ),
-                  child: Column(
-                    children: [
-                      SizedBox(height: 10),
-                      Row(
-                        children: [
+                Positioned(
+                  bottom: 0,
+                  child: Container(
+                    width: double.infinity,
+                    height: 400,
+                    decoration: BoxDecoration(
 
-                          ContainerButton(ImageName:"team",labelText: "TEAM",option: ()=>TeamPic()),
-                          SizedBox(width: MediaQuery.of(context).size.width*0.008),
-                          ContainerButton(ImageName:"ps",labelText: "PS",option: ()=>PS(),),
-                        ],
-                      ),
-                      SizedBox(height: 20),
-                      Row(
-                        children: [
-                          ContainerButton(ImageName:"predict",labelText: "PREDICT", option: ()=>FlowerClassification()),
-                          SizedBox(width: MediaQuery.of(context).size.width*0.007),
-                          ContainerButton(ImageName:"news",labelText: "NEWS",option: ()=>News(),),
-                        ],
-                      ),
-                    ],
+                      color: backgroundContainer,
+                      borderRadius: BorderRadius.circular(20),
+                    ),
+                    child: Column(
+                      children: [
+                        SizedBox(height: 10),
+                        Row(
+                          children: [
+
+                            ContainerButton(ImageName:"team",labelText: "TEAM",option: ()=>TeamPic()),
+                            SizedBox(width: MediaQuery.of(context).size.width*0.008),
+                            ContainerButton(ImageName:"ps",labelText: "PS",option: ()=>PS(),),
+                          ],
+                        ),
+                        SizedBox(height: 20),
+                        Row(
+                          children: [
+                            ContainerButton(ImageName:"predict",labelText: "PREDICT", option: ()=>Predict()),
+                            SizedBox(width: MediaQuery.of(context).size.width*0.007),
+                            ContainerButton(ImageName:"news",labelText: "NEWS",option: ()=>News(),),
+                          ],
+                        ),
+                      ],
+                    ),
                   ),
                 ),
-                Container(height: MediaQuery.of(context).size.height*0.3,width: double.infinity),
+
 
               ],
             ),
-          ),
-          Positioned(
-            left: 0,
-            right: 0,
-            bottom: 0,
-            child: BottomNavigationBarWidget(
-              currentPageIndex: currentPageIndex,
-              onDestinationSelected: (index) {
-                setState(() {
-                  currentPageIndex = index;
-                });
-              },
+            Positioned(
+              left: 0,
+              right: 0,
+              bottom: 0,
+              child: BottomNavigationBarWidget(
+                currentPageIndex: currentPageIndex,
+                onDestinationSelected: (index) {
+                  setState(() {
+                    currentPageIndex = index;
+                  });
+                },
+              ),
             ),
-          ),
-        ],
-      ),
-    );
+          ],
+
+            ),
+      ));
   }
 }
 
@@ -128,6 +145,7 @@ class ContainerButton extends StatelessWidget {
                 decoration: BoxDecoration(
                   borderRadius: BorderRadius.circular(10),
                   image: DecorationImage(
+
                     image: AssetImage("assets/images/${ImageName}.png"),
                     scale: 2.3,
                   ),
@@ -138,7 +156,7 @@ class ContainerButton extends StatelessWidget {
             SizedBox(height: 10),
             Positioned(
               bottom: 0,
-              left: 65,
+              left: 40,
               child: Text(
                 labelText ?? "",
                 style: TextStyle(
